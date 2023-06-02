@@ -1,9 +1,8 @@
-import * as THREE from "three";
-import { GLTFLoader } from "three/examples/jsm/loaders/gltfloader.js";
-import { RGBELoader } from "three/examples/jsm/loaders/RGBELoader.js";
+import * as THREE from "https://cdn.jsdelivr.net/npm/three@0.121.1/build/three.module.js";
+import { GLTFLoader } from "https://cdn.jsdelivr.net/npm/three@0.121.1/examples/jsm/loaders/GLTFLoader.js";
+import { RGBELoader } from "https://cdn.jsdelivr.net/npm/three@0.121.1/examples/jsm/loaders/RGBELoader.js";
 import { FontLoader } from "./js/FontLoader";
 import { TextGeometry } from "./js/TextGeometry";
-import { OrbitControls } from "three/examples/jsm/controls/OrbitControls.js";
 import * as CANNON from "cannon-es";
 import moon from "/Assets/Images/moon.jpg";
 import earth from "/Assets/Images/EarthTexture.jpg";
