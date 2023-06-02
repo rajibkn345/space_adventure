@@ -1,0 +1,116 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@100;200;300;400;500;600;700&display=swap");
+
+body {
+  margin: 0;
+  width: 100vw;
+  height: 100vh;
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  color: #fff;
+  background: #000;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+body,
+body * {
+  box-sizing: border-box;
+}
+
+#canvas-container {
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+}
+
+canvas {
+  width: 100vw;
+  height: 100%;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes pulse {
+  50% {
+    background: white;
+  }
+}
+
+.loader,
+.redirection-text-container {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  z-index: 1;
+}
+
+.redirection-text {
+  margin-top: 5rem;
+  /* THis you can use to edit Font style */
+  font-family: "Roboto Mono", monospace;
+  /* This changes color */
+  color: #fff;
+  display: none;
+  /* This is to change size */
+  font-size: 1.2rem;
+  letter-spacing: 1px;
+}
+
+.speed-text {
+  position: absolute;
+  font-size: 1.1rem;
+  left: 2%;
+  top: 4%;
+  z-index: 1;
+  opacity: 0;
+}
+
+.loading-pulse {
+  position: relative;
+  width: 6px;
+  height: 24px;
+  background: rgba(255, 255, 255, 0.2);
+  animation: pulse 750ms infinite;
+  animation-delay: 250ms;
+}
+
+.loading-pulse:before,
+.loading-pulse:after {
+  content: "";
+  position: absolute;
+  display: block;
+  height: 16px;
+  width: 6px;
+  background: rgba(255, 255, 255, 0.2);
+  top: 50%;
+  transform: translateY(-50%);
+  animation: pulse 750ms infinite;
+}
+
+.loading-pulse:before {
+  left: -12px;
+}
+
+.loading-pulse:after {
+  left: 12px;
+  animation-delay: 500ms;
+}
+
+.hide {
+  display: none;
+}

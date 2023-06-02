@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/spaceship-svgrepo-com.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Space Adventure</title>
+  </head>
+  <body>
+    <span class="speed-text">Speed : 0</span>
+    <div class="redirection-text-container">
+      <span class="redirection-text" id="redirection-text">
+        Press [Enter] to Visit
+      </span>
+    </div>
+    <div class="loader">
+      <div class="loading-pulse"></div>
+    </div>
+    <div id="app"></div>
+    <script id="vertexShader" type="x-shader/x-vertex">
+      varying vec3 vNormal;
+      varying vec2 vertexUV;
+      void main()
+      {
+        vertexUV = uv;
+          vNormal = normalize( normalMatrix * normal );
+          gl_Position = projectionMatrix * modelViewMatrix * vec4( position, 1.0 );
+      }
+    </script>
+
+    <!-- fragment shader a.k.a. pixel shader -->
+    <script id="fragmentShader" type="x-shader/x-vertex">
+      varying vec3 vNormal;
+      uniform sampler2D globTexture;
+      varying vec2 vertexUV;
+      uniform vec3 glowColor;
+      void main()
+      {
+      	float intensity = pow( 1.9 - dot( vNormal, vec3( 0, 0.0, 1.0) ), 1.0);
+        vec3 atmosphereColor = glowColor * intensity;
+          gl_FragColor = vec4(atmosphereColor + texture2D(globTexture, vertexUV).xyz,1.0)  ;
+      }
+    </script>
+
+    <!-- fragment shader a.k.a. pixel shader -->
+    <script id="fragmentShaderText" type="x-shader/x-vertex">
+      varying vec3 vNormal;
+      uniform sampler2D globTexture;
+      varying vec2 vertexUV;
+      uniform vec3 glowColor;
+      void main()
+      {
+      	float intensity = pow( 1.9 - dot( vNormal, vec3( 0, 1.0, 0.5) ), 1.0);
+        vec3 atmosphereColor = glowColor * intensity;
+          gl_FragColor = vec4(atmosphereColor ,1.0)  ;
+      }
+    </script>
+
+    <script type="module" src="/main.js"></script>
+  </body>
+</html>
