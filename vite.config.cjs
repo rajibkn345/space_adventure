@@ -2,7 +2,7 @@
 module.exports = {
   build: {
     rollupOptions: {
-      external: ["three/examples/jsm/loaders/gltfloader.js"],
+      external: ["three", "three/examples/jsm/loaders/gltfloader.js"],
     },
   },
 };
