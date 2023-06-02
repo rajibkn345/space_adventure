@@ -5,4 +5,5 @@ module.exports = {
       external: ["three", "three/examples/jsm/loaders/gltfloader.js"],
     },
   },
+   base: './',
 };
