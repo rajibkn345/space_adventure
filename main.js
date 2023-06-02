@@ -3,7 +3,7 @@ import { GLTFLoader } from "https://cdn.jsdelivr.net/npm/three@0.121.1/examples/
 import { RGBELoader } from "https://cdn.jsdelivr.net/npm/three@0.121.1/examples/jsm/loaders/RGBELoader.js";
 import { FontLoader } from "./js/FontLoader";
 import { TextGeometry } from "./js/TextGeometry";
-import * as CANNON from 'https://cdn.jsdelivr.net/npm/cannon-es@0.20.0/+esm';
+import * as CANNON from "cannon-es";
 import moon from "/Assets/Images/moon.jpg";
 import earth from "/Assets/Images/EarthTexture.jpg";
 import asteroid1 from "/Assets/Images/asteroid1.jpg";
